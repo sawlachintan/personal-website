@@ -7,7 +7,7 @@ import {
   createTheme,
 } from "@mui/material";
 import { motion } from "framer-motion";
-export const CourseCard = ({ index, title, semester, content }) => {
+export const CourseCard = ({ index, title, semester, content, dark }) => {
   const theme = createTheme({
     typography: {
       fontFamily: "Poppins",
@@ -29,18 +29,37 @@ export const CourseCard = ({ index, title, semester, content }) => {
       <motion.div
         initial={{ opacity: 0, translateY: 50 }}
         animate={{ opacity: 1, translateY: 0 }}
+        exit={{ opacity: 0, translateY: 50 }}
         transition={{ duration: 0.65, delay: index * 0.35 }}
       >
-        <Card style={{ backgroundColor: "#242424", height: "100%" }}>
+        <Card
+          style={{
+            backgroundColor: `${dark ? "#242424" : "#ebebeb"}`,
+            minHeight: "20vh",
+          }}
+        >
           <CardContent style={{ height: "100%" }}>
             <ThemeProvider theme={theme}>
-              <Typography color="#eee" variant="h3" component="div">
+              <Typography
+                color={dark ? "#eee" : "#111"}
+                variant="h3"
+                component="div"
+              >
                 {title}
               </Typography>
-              <Typography sx={{ mt: 0.75, mb: 1.25 }} variant="h5" color="#eee">
+              <Typography
+                sx={{ mt: 0.75, mb: 1.25 }}
+                textAlign={"right"}
+                variant="h5"
+                color={dark ? "#eee" : "#111"}
+              >
                 {semester}
               </Typography>
-              <Typography textAlign={"left"} color="#eee" variant="body1">
+              <Typography
+                textAlign={"left"}
+                color={dark ? "#eee" : "#111"}
+                variant="body1"
+              >
                 {content}
               </Typography>
             </ThemeProvider>
@@ -50,3 +69,4 @@ export const CourseCard = ({ index, title, semester, content }) => {
     </Grid>
   );
 };
+// "#242424"

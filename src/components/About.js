@@ -1,8 +1,8 @@
 import { Stack, Typography, ThemeProvider, createTheme } from "@mui/material";
 import { motion } from "framer-motion";
-import { aboutMe } from "../assets/aboutMe";
+import { aboutMe } from "../assets/constants/aboutMe";
 
-export const About = () => {
+export const About = ({accentColor}) => {
   return (
     <ThemeProvider
       theme={createTheme({
@@ -31,6 +31,7 @@ export const About = () => {
               <Typography
                 textAlign={"left"}
                 variant={i !== 2 ? "body1" : "body2"}
+                color={i === 2 ? accentColor : null}
               >
                 {d}
               </Typography>

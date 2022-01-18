@@ -5,14 +5,11 @@ import {
   ThemeProvider,
   createTheme,
 } from "@mui/material";
-import EmailIcon from "@mui/icons-material/Email";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import Profile from "../assets/Ellipse 1.png";
 import Typewriter from "typewriter-effect";
+import { motion } from "framer-motion";
+import { contactMe } from "../assets/constants/contactMe";
 
-export const Home = () => {
+export const Home = ({ dark, accentColor }) => {
   const theme = createTheme({
     typography: {
       fontFamily: "Poppins",
@@ -27,67 +24,79 @@ export const Home = () => {
     },
   });
   return (
-    <Stack direction="row" alignItems={"center"} spacing={3}>
-      <Stack spacing={2}>
+    <Stack direction="row" alignItems={"center"} spacing={3} height={"70vh"}>
+      <Stack spacing={2} height={"70vh"} justifyContent={"center"}>
         <ThemeProvider theme={theme}>
-          <Typography textAlign={"left"} variant="h2">
-            Hey, I am Chintan Sawla
-          </Typography>
-          <Typography textAlign={"left"} variant="h4" sx={{ color: "#6250F4" }}>
-            <Typewriter
-              options={{
-                strings: [
-                  "Data Scientist",
-                  "Web Developer",
-                  "Student",
-                  "BoilerMaker",
-                ],
-                autoStart: true,
-                loop: true,
-              }}
-            />
-          </Typography>
+          <motion.div
+            initial={{ opacity: 0, translateY: 30 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={{ duration: 0.65 }}
+          >
+            <Typography textAlign={"left"} variant="h2">
+              Hey, I am Chintan Sawla
+            </Typography>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, translateY: 30 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            transition={{ duration: 0.65 }}
+          >
+            <Typography
+              textAlign={"left"}
+              variant="h4"
+              sx={{ color: accentColor }}
+            >
+              <Typewriter
+                options={{
+                  strings: [
+                    "Data Scientist",
+                    "Web Developer",
+                    "Student",
+                    "BoilerMaker",
+                  ],
+                  autoStart: true,
+                  loop: true,
+                }}
+              />
+            </Typography>
+          </motion.div>
         </ThemeProvider>
 
         <Stack direction={"row"} spacing={2}>
-          <IconButton
-            color="inherit"
-            aria-label="send an email"
-            href={"mailto:sawlachintan@gmail.com"}
-          >
-            <EmailIcon />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            aria-label="visit github profile"
-            href={"https://github.com/sawlachintan/"}
-            target="_blank"
-            rel="noopener"
-          >
-            <GitHubIcon />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            aria-label="visit twitter profile"
-            href={"https://twitter.com/sawlachintan/"}
-            target="_blank"
-            rel="noopener"
-          >
-            <TwitterIcon />
-          </IconButton>
-          <IconButton
-            color="inherit"
-            aria-label="visit linkedin profile"
-            href={"https://www.linkedin.com/in/chintansawla/"}
-            target="_blank"
-            rel="noopener"
-          >
-            <LinkedInIcon />
-          </IconButton>
+          {contactMe.map((d, i) => {
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, translateY: 30 }}
+                animate={{ opacity: 1, translateY: 0 }}
+                transition={{ duration: 0.65, delay: i * 0.35 }}
+              >
+                <IconButton
+                  color="inherit"
+                  aria-label={d.ariaLabel}
+                  href={d.href}
+                  target={d.ariaLabel === "send an email" ? null : "_blank"}
+                  rel={d.ariaLabel === "send an email" ? null : "noopener"}
+                >
+                  {d.button}
+                </IconButton>
+              </motion.div>
+            );
+          })}
         </Stack>
       </Stack>
-      <Stack justifyContent={"right"}>
-        <img className="profile" src={Profile} alt="face of Chintan Sawla" />
+      <Stack justifyContent={"center"} height={"70vh"}>
+        <motion.div
+          initial={{ opacity: 0, translateY: 30 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          transition={{ duration: 0.65 }}
+        >
+          {/* <img className="profile" src={Profile} alt="face of Chintan Sawla" /> */}
+          <svg height={"70vh"}>
+            <circle r={150} cx={"50%"} cy="50%" fill={accentColor}></circle>
+          </svg>
+        </motion.div>
       </Stack>
     </Stack>
   );
