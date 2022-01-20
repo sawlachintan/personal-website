@@ -58,7 +58,7 @@ function App() {
   const svgString = encodeURIComponent(renderToStaticMarkup(svgBack));
   const dataUri = `url("data:image/svg+xml,${svgString}")`;
 
-  const iconColor = dark ? "#eee" : "#111";
+  const iconColor = newDark === "dark" ? "#eee" : "#111";
   const theme = createTheme({
     palette: {
       primary: {
@@ -101,7 +101,7 @@ function App() {
   return (
     <div
       className="App"
-      style={{ backgroundColor: `${dark ? "#111" : "#eee"}` }}
+      style={{ backgroundColor: `${newDark === "dark" ? "#111" : "#eee"}` }}
     >
       <ThemeProvider theme={theme}>
         <Box
@@ -118,7 +118,7 @@ function App() {
             >
               <Typography
                 variant="h1"
-                color={dark ? "#eee" : "#111"}
+                color={newDark === "dark" ? "#eee" : "#111"}
                 component="div"
               >
                 CS
@@ -136,7 +136,7 @@ function App() {
                     >
                       <Typography
                         variant="h4"
-                        color={dark ? "#eee" : "#111"}
+                        color={newDark === "dark" ? "#eee" : "#111"}
                         sx={{ textTransform: "capitalize" }}
                       >
                         {d}
@@ -151,7 +151,7 @@ function App() {
                     toggleTheme();
                   }}
                 >
-                  {newDark ? <LightModeIcon /> : <DarkModeIcon />}
+                  {newDark === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
                 </IconButton>
                 <IconButton
                   color="primary"
@@ -175,7 +175,7 @@ function App() {
       <header
         className="App-header"
         style={{
-          color: `${newDark ? "#eee" : "#111"}`,
+          color: `${newDark === "dark" ? "#eee" : "#111"}`,
           backgroundImage: `${dataUri}`,
           backgroundSize: "cover",
         }}
@@ -183,18 +183,18 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Home dark={newDark} accentColor={accentColor} />}
+            element={<Home dark={newDark === "dark"} accentColor={accentColor} />}
           />
           <Route
             path="/about"
-            element={<About dark={newDark} accentColor={accentColor} />}
+            element={<About dark={newDark === "dark"} accentColor={accentColor} />}
           />
-          <Route path="/coursework" element={<Coursework dark={newDark} />} />
+          <Route path="/coursework" element={<Coursework dark={newDark === "dark"} />} />
           <Route
             path="/skills"
-            element={<Skills dark={newDark} accentColor={accentColor} />}
+            element={<Skills dark={newDark === "dark"} accentColor={accentColor} />}
           />
-          <Route path="/projects" element={<Projects dark={newDark} />} />
+          <Route path="/projects" element={<Projects dark={newDark === "dark"} />} />
         </Routes>
       </header>
     </div>

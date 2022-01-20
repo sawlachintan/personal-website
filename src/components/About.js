@@ -32,6 +32,7 @@ export const About = ({accentColor}) => {
                 textAlign={"left"}
                 variant={i !== 2 ? "body1" : "body2"}
                 color={i === 2 ? accentColor : null}
+                sx={{transition: "color 0.65s ease-in-out"}}
               >
                 {d}
               </Typography>

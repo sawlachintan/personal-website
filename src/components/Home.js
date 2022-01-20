@@ -45,7 +45,7 @@ export const Home = ({ dark, accentColor }) => {
             <Typography
               textAlign={"left"}
               variant="h4"
-              sx={{ color: accentColor }}
+              sx={{ color: accentColor, transition: "color 0.65s ease-in-out" }}
             >
               <Typewriter
                 options={{
@@ -66,6 +66,7 @@ export const Home = ({ dark, accentColor }) => {
         <Stack direction={"row"} spacing={2}>
           {contactMe.map((d, i) => {
             return (
+              //wrap as a component, good refactoring point
               <motion.div
                 key={i}
                 initial={{ opacity: 0, translateY: 30 }}
@@ -94,7 +95,7 @@ export const Home = ({ dark, accentColor }) => {
         >
           {/* <img className="profile" src={Profile} alt="face of Chintan Sawla" /> */}
           <svg height={"70vh"}>
-            <circle r={150} cx={"50%"} cy="50%" fill={accentColor}></circle>
+            <circle r={150} cx={"50%"} cy="50%" fill={accentColor} style={{transition: "fill 0.65s ease-in-out"}}></circle>
           </svg>
         </motion.div>
       </Stack>
