@@ -54,7 +54,7 @@ export const Home = ({ dark, accentColor }) => {
                     "Web Developer",
                     "Student",
                     "BoilerMaker",
-                    "Teaching Assistant",
+                    "Researcher",
                   ],
                   autoStart: true,
                   loop: true,
