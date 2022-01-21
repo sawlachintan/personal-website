@@ -1,30 +1,28 @@
 import { useEffect, useState } from "react";
 
+const lsSet = (preference) => {
+  window.localStorage.setItem("theme", preference);
+};
+
 export const useDarkLight = () => {
   const [theme, setTheme] = useState("light");
-  function lsSet(preference) {
-    window.localStorage.setItem("theme", preference);
-    setTheme(preference);
-  }
 
-  function toggleTheme() {
+  const toggleTheme = () => {
     if (theme === "light") {
       lsSet("dark");
+      setTheme("dark");
     } else {
       lsSet("light");
+      setTheme("light");
     }
-  }
+  };
 
   useEffect(() => {
     const localTheme = window.localStorage.getItem("theme");
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches &&
-    !localTheme
-      ? lsSet("dark")
-      : localTheme
-      ? setTheme(localTheme)
-      : lsSet("light");
-  }, [theme]);
+    if (localTheme) {
+      setTheme(localTheme);
+    }
+  }, []);
 
   return [theme, toggleTheme];
 };

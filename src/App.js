@@ -17,7 +17,7 @@ import {
   createTheme,
 } from "@mui/material";
 import Typewriter from "typewriter-effect";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import ColorLensIcon from "@mui/icons-material/ColorLens";
@@ -25,6 +25,7 @@ import { SvgBackground } from "./assets/images/SvgBackground";
 import { renderToStaticMarkup } from "react-dom/server";
 import { useDarkLight } from "./hooks/useDarkLight";
 import { Projects } from "./components/Projects";
+import { useAccentColor } from "./hooks/useAccentColor";
 
 const pages = ["Home", "About", "Coursework", "Projects", "Skills", "Resume"];
 const routeParser = (page) => {
@@ -36,24 +37,17 @@ const routeParser = (page) => {
   return page.toLowerCase();
 };
 
-const accentColors = [
-  "#d50000",
-  "#f57c00",
-  "#e91e63",
-  "#36B06F",
-  "#6250F4",
-  "#2979ff",
-  "#E7B92F",
-];
-let colorCount = 0;
 function App() {
   const [newDark, toggleTheme] = useDarkLight();
-  const [dark, setDark] = useState(true);
-  const [accentColor, setAccentColor] = useState(accentColors[0]);
+  const [accentColor, setAccent] = useAccentColor();
 
   const [svgBack, setSvgBack] = useState(
     <SvgBackground accentColor={accentColor} />
   );
+
+  useEffect(() => {
+    setSvgBack(<SvgBackground accentColor={accentColor} />);
+  }, [accentColor]);
 
   const svgString = encodeURIComponent(renderToStaticMarkup(svgBack));
   const dataUri = `url("data:image/svg+xml,${svgString}")`;
@@ -147,7 +141,6 @@ function App() {
                 <IconButton
                   color="primary"
                   onClick={() => {
-                    setDark(!dark);
                     toggleTheme();
                   }}
                 >
@@ -156,12 +149,7 @@ function App() {
                 <IconButton
                   color="primary"
                   onClick={() => {
-                    const newColor = (colorCount + 1) % accentColors.length;
-                    colorCount += 1;
-                    setAccentColor(accentColors[newColor]);
-                    setSvgBack(
-                      <SvgBackground accentColor={accentColors[newColor]} />
-                    );
+                    setAccent();
                   }}
                 >
                   <ColorLensIcon />
@@ -183,18 +171,30 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Home dark={newDark === "dark"} accentColor={accentColor} />}
+            element={
+              <Home dark={newDark === "dark"} accentColor={accentColor} />
+            }
           />
           <Route
             path="/about"
-            element={<About dark={newDark === "dark"} accentColor={accentColor} />}
+            element={
+              <About dark={newDark === "dark"} accentColor={accentColor} />
+            }
           />
-          <Route path="/coursework" element={<Coursework dark={newDark === "dark"} />} />
+          <Route
+            path="/coursework"
+            element={<Coursework dark={newDark === "dark"} />}
+          />
           <Route
             path="/skills"
-            element={<Skills dark={newDark === "dark"} accentColor={accentColor} />}
+            element={
+              <Skills dark={newDark === "dark"} accentColor={accentColor} />
+            }
           />
-          <Route path="/projects" element={<Projects dark={newDark === "dark"} />} />
+          <Route
+            path="/projects"
+            element={<Projects dark={newDark === "dark"} />}
+          />
         </Routes>
       </header>
     </div>
