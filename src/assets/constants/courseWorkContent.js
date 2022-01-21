@@ -37,13 +37,13 @@ export const courseWorkContent = [
     content: `Write out the objective of the class taken. This can include the objective from the syllabus of the classes`,
   },
   {
-    title: "Elementary Linear Algebra",
-    semester: "Fall 2020",
+    title: "Probability",
+    semester: "Spring 2021",
     content: `Write out the objective of the class taken. This can include the objective from the syllabus of the classes`,
   },
   {
-    title: "Probability",
-    semester: "Spring 2021",
+    title: "Elementary Linear Algebra",
+    semester: "Fall 2020",
     content: `Write out the objective of the class taken. This can include the objective from the syllabus of the classes`,
   },
 ];

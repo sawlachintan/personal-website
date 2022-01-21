@@ -69,4 +69,3 @@ export const CourseCard = ({ index, title, semester, content, dark }) => {
     </Grid>
   );
 };
-// "#242424"

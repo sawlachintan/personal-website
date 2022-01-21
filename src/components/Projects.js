@@ -57,7 +57,7 @@ const ProjectCard = ({ dark, project, index }) => {
       >
         <Card
           style={{
-            backgroundColor: `${dark === "dark" ? "#242424" : "#ebebeb"}`,
+            backgroundColor: `${dark ? "#242424" : "#ebebeb"}`,
             height: "35vh",
           }}
         >
@@ -70,15 +70,12 @@ const ProjectCard = ({ dark, project, index }) => {
               sx={{ backgroundPosition: "top" }}
             />
             <CardContent>
-              <Typography
-                color={dark === "dark" ? "#eee" : "#111"}
-                variant="h3"
-              >
+              <Typography color={dark ? "#eee" : "#111"} variant="h3">
                 {project.title}
               </Typography>
               <Typography
                 textAlign={"left"}
-                color={dark === "dark" ? "#eee" : "#111"}
+                color={dark ? "#eee" : "#111"}
                 variant="h5"
               >
                 {project.description}

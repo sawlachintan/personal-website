@@ -20,6 +20,6 @@
   transform: scale(0.75);
 }
 
-#visual {
-  transition: all 0.65s ease-in-out;
+text{
+  user-select: none;
 }

@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 
 const accentColors = [
-  "#d50000",
-  "#f57c00",
-  "#e91e63",
-  "#36B06F",
-  "#6250F4",
-  "#2979ff",
-  "#E7B92F",
+  "#757575", //colorblind friendly
+  "#d50000", //red
+  "#f57c00", //orange
+  "#e91e63", //pink
+  "#36B06F", //yellow
+  "#6250F4", //purple
+  "#2979ff", // blue
+  "#E7B92F", // green
 ];
 
 const lsSet = (preference) => {

@@ -54,6 +54,7 @@ export const Home = ({ dark, accentColor }) => {
                     "Web Developer",
                     "Student",
                     "BoilerMaker",
+                    "Teaching Assistant",
                   ],
                   autoStart: true,
                   loop: true,
@@ -95,7 +96,13 @@ export const Home = ({ dark, accentColor }) => {
         >
           {/* <img className="profile" src={Profile} alt="face of Chintan Sawla" /> */}
           <svg height={"70vh"}>
-            <circle r={150} cx={"50%"} cy="50%" fill={accentColor} style={{transition: "fill 0.65s ease-in-out"}}></circle>
+            <circle
+              r={150}
+              cx={"50%"}
+              cy="50%"
+              fill={accentColor}
+              style={{ transition: "fill 0.65s ease-in-out" }}
+            ></circle>
           </svg>
         </motion.div>
       </Stack>
