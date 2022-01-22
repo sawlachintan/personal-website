@@ -1,7 +1,7 @@
 {
   "name": "personal-website",
   "version": "0.1.0",
-  "homepage": "https://sawlachintan.github.io/personal-website",
+  "homepage": "https://sawlachintan.github.io/personal-website/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.7.1",
