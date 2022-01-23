@@ -30,7 +30,7 @@ import { useAccentColor } from "./hooks/useAccentColor";
 const pages = ["Home", "About", "Coursework", "Projects", "Skills", "Resume"];
 const routeParser = (page) => {
   if (page === "Home") {
-    return "/personal-website";
+    return "/personal-website/";
   } else if (page === "Resume") {
     return "https://drive.google.com/file/d/1oVX4Brx77tNKG1nqlw6VByalSOe8HQLD/view?usp=sharing";
   }
@@ -170,7 +170,7 @@ function App() {
       >
         <Routes>
           <Route
-            path="/personal-website"
+            path="/personal-website/"
             element={
               <Home dark={newDark === "dark"} accentColor={accentColor} />
             }
