@@ -9,6 +9,10 @@ The website intends to showcase my skills in design and code. There is still for
  - React Router
  - TypewriterJS
 
+## Tools used:
+ - VS Code
+ - Figma
+
 ## Near Goals:
  - Underline link that is active
  - Make it mobile responsive
