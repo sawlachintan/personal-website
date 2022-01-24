@@ -14,17 +14,22 @@ It demonstrates the languages and libraries I know, along with the applcations b
 
 ### Libaries used:
 
-- D3JS
-- Framer Motion
-- Material UI
-- ReactJS
-- React Router
-- TypewriterJS
+- ![D3JS](https://d3js.org)
+- ![Framer Motion](https://www.framer.com/motion/)
+- ![Material UI](https://mui.com)
+- ![ReactJS](https://reactjs.org)
+- ![React Router](https://reactrouter.com)
+- ![TypewriterJS](https://github.com/tameemsafi/typewriterjs)
 
 ### Tools used:
 
 - VS Code
 - Figma
+
+## References:
+ - ![Rafael Pedicini](https://github.com/rafgraph/spa-github-pages)
+ - ![FreeCodeCamp](https://www.youtube.com/channel/UC8butISFwT-Wl7EV0hUK0BQ)
+ - 
 
 ## Future Objectives:
 
@@ -34,3 +39,4 @@ It demonstrates the languages and libraries I know, along with the applcations b
 - Increase micro interactions
   - Change button color to accent on hover
   - Animate CS logo
+
