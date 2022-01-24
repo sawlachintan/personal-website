@@ -1,9 +1,13 @@
 # personal-website
 The website intends to showcase my skills in design and code. There is still for improvement in terms of responsiveness and accessibility features.
 
-
-
-
+## Libraries used:
+ - D3
+ - Framer Motion
+ - Material UI
+ - ReactJS
+ - React Router
+ - TypewriterJS
 
 ## Near Goals:
  - Underline link that is active
