@@ -30,11 +30,11 @@ import { useAccentColor } from "./hooks/useAccentColor";
 const pages = ["Home", "About", "Coursework", "Projects", "Skills", "Resume"];
 const routeParser = (page) => {
   if (page === "Home") {
-    return "/personal-website/";
+    return "/";
   } else if (page === "Resume") {
     return "https://drive.google.com/file/d/1oVX4Brx77tNKG1nqlw6VByalSOe8HQLD/view?usp=sharing";
   }
-  return "/personal-website/" + page.toLowerCase();
+  return page.toLowerCase();
 };
 
 function App() {
@@ -170,29 +170,30 @@ function App() {
       >
         <Routes>
           <Route
-            path="/personal-website/"
+            index
+            path="/personal-website"
             element={
               <Home dark={newDark === "dark"} accentColor={accentColor} />
             }
           />
           <Route
-            path="/personal-website/about"
+            path="/about"
             element={
               <About dark={newDark === "dark"} accentColor={accentColor} />
             }
           />
           <Route
-            path="/personal-website/coursework"
+            path="/coursework"
             element={<Coursework dark={newDark === "dark"} />}
           />
           <Route
-            path="/personal-website/skills"
+            path="/skills"
             element={
               <Skills dark={newDark === "dark"} accentColor={accentColor} />
             }
           />
           <Route
-            path="/personal-website/projects"
+            path="/projects"
             element={<Projects dark={newDark === "dark"} />}
           />
         </Routes>
