@@ -39,4 +39,3 @@ It demonstrates the languages and libraries I know, along with the applcations b
 - Increase micro interactions
   - Change button color to accent on hover
   - Animate CS logo
-
