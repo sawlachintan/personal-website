@@ -8,6 +8,7 @@ import {
 import Typewriter from "typewriter-effect";
 import { motion } from "framer-motion";
 import { contactMe } from "../assets/constants/contactMe";
+import Profile from "../assets/images/ChintanProfile.png"
 
 export const Home = ({ dark, accentColor }) => {
   const theme = createTheme({
@@ -94,8 +95,8 @@ export const Home = ({ dark, accentColor }) => {
           animate={{ opacity: 1, translateY: 0 }}
           transition={{ duration: 0.65 }}
         >
-          {/* <img className="profile" src={Profile} alt="face of Chintan Sawla" /> */}
-          <svg height={"70vh"}>
+          <img className="profile" src={Profile} alt="face of Chintan Sawla" />
+          {/* <svg height={"70vh"}>
             <circle
               r={150}
               cx={"50%"}
@@ -103,7 +104,7 @@ export const Home = ({ dark, accentColor }) => {
               fill={accentColor}
               style={{ transition: "fill 0.65s ease-in-out" }}
             ></circle>
-          </svg>
+          </svg> */}
         </motion.div>
       </Stack>
     </Stack>
