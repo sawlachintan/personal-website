@@ -18,7 +18,7 @@ export const Coursework = ({ dark }) => {
         justifyContent={"center"}
         alignItems={"stretch"}
         spacing={2}
-        sx={{ width: "80vw", overflow: "auto", height: "70vh" }}
+        sx={{ width: "80vw", overflow: "auto", height: "72.5vh" }}
         mt={6}
       >
         {courseWorkContent.map((d, i) => {

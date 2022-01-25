@@ -35,7 +35,7 @@ export const CourseCard = ({ index, title, semester, content, dark }) => {
         <Card
           style={{
             backgroundColor: `${dark ? "#242424" : "#ebebeb"}`,
-            minHeight: "20vh",
+            minHeight: "22.5vh",
           }}
         >
           <CardContent style={{ height: "100%" }}>
