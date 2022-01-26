@@ -2,7 +2,7 @@
 
 The website intends to let people know about me and showcase my skills in design and code.
 
-![homepage of Chintan's website](homepage.png)
+![homepage of Chintan's website](home.png)
 
 An important feature of the website is the [Skills](https://sawlachintan.github.io/personal-website/skills) page.
 
