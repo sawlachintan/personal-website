@@ -4,10 +4,22 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
+import ReactGA from "react-ga";
+import { createBrowserHistory } from "history";
+
+const trackingId = "G-R2VYZJ4L1E";
+ReactGA.initialize(trackingId);
+
+const history = createBrowserHistory();
+
+history.listen((location) => {
+  ReactGA.set({ page: location.pathname });
+  ReactGA.pageview(location.pathname);
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router basename="/personal-website">
+    <Router history={history} basename="/personal-website">
       <App />
     </Router>
   </React.StrictMode>,
