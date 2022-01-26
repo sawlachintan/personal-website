@@ -32,7 +32,7 @@ const routeParser = (page) => {
   if (page === "Home") {
     return "/personal-website";
   } else if (page === "Resume") {
-    return "https://drive.google.com/file/d/1oVX4Brx77tNKG1nqlw6VByalSOe8HQLD/view?usp=sharing";
+    return "https://drive.google.com/file/d/1-Qogw36NHTUS--idBBVM9nRbnxuRwB0U/view?usp=sharing";
   }
   return "/personal-website/" + page.toLowerCase();
 };
