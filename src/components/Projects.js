@@ -9,6 +9,7 @@ import {
   CardMedia,
 } from "@mui/material";
 import { motion } from "framer-motion";
+import { useGATracker } from "../hooks/useGATracker";
 
 const theme = createTheme({
   typography: {
@@ -47,6 +48,7 @@ const projectData = [
 ];
 
 const ProjectCard = ({ dark, project, index }) => {
+  useGATracker();
   return (
     <Grid sm={5} item>
       <motion.div

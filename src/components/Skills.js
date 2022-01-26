@@ -10,8 +10,10 @@ import {
   createTheme,
 } from "@mui/material";
 import { useRef } from "react";
+import { useGATracker } from "../hooks/useGATracker";
 
 export const Skills = ({ dark, accentColor }) => {
+  useGATracker();
   const linkRef = useRef(null);
   const projectRef = useRef(null);
   const theme = createTheme({

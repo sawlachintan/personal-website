@@ -1,8 +1,10 @@
 import { Stack, Typography, ThemeProvider, createTheme } from "@mui/material";
 import { motion } from "framer-motion";
 import { aboutMe } from "../assets/constants/aboutMe";
+import { useGATracker } from "../hooks/useGATracker";
 
-export const About = ({accentColor}) => {
+export const About = ({ accentColor }) => {
+  useGATracker();
   return (
     <ThemeProvider
       theme={createTheme({
@@ -32,7 +34,7 @@ export const About = ({accentColor}) => {
                 textAlign={"left"}
                 variant={i !== 2 ? "body1" : "body2"}
                 color={i === 2 ? accentColor : null}
-                sx={{transition: "color 0.65s ease-in-out"}}
+                sx={{ transition: "color 0.65s ease-in-out" }}
               >
                 {d}
               </Typography>

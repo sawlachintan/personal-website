@@ -26,6 +26,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { useDarkLight } from "./hooks/useDarkLight";
 import { Projects } from "./components/Projects";
 import { useAccentColor } from "./hooks/useAccentColor";
+import { useGATracker } from "./hooks/useGATracker";
 
 const pages = ["Home", "About", "Coursework", "Projects", "Skills", "Resume"];
 const routeParser = (page) => {
@@ -71,6 +72,7 @@ function App() {
       },
     },
   });
+  useGATracker();
   const nonDesktop = useMediaQuery("(max-width:900px)");
   if (nonDesktop)
     return (
@@ -95,7 +97,10 @@ function App() {
   return (
     <div
       className="App"
-      style={{ backgroundColor: `${newDark === "dark" ? "#111" : "#eee"}`, transition: "background-color 0.65s ease-in-out" }}
+      style={{
+        backgroundColor: `${newDark === "dark" ? "#111" : "#eee"}`,
+        transition: "background-color 0.65s ease-in-out",
+      }}
     >
       <ThemeProvider theme={theme}>
         <Box
