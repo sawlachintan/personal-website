@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
-import { text } from "d3";
 
 const strokeColors = {
   "#d50000": "#ef9a9a",
