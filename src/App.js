@@ -95,7 +95,7 @@ function App() {
   return (
     <div
       className="App"
-      style={{ backgroundColor: `${newDark === "dark" ? "#111" : "#eee"}` }}
+      style={{ backgroundColor: `${newDark === "dark" ? "#111" : "#eee"}`, transition: "background-color 0.65s ease-in-out" }}
     >
       <ThemeProvider theme={theme}>
         <Box
@@ -119,7 +119,6 @@ function App() {
               </Typography>
               <Stack direction={"row"}>
                 {pages.map((d, i) => {
-                  console.log(routeParser(d));
                   return (
                     <Button
                       href={routeParser(d)}

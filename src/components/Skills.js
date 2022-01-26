@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { useRef } from "react";
 
-export const Skills = ({ accentColor }) => {
+export const Skills = ({ dark, accentColor }) => {
   const linkRef = useRef(null);
   const projectRef = useRef(null);
   const theme = createTheme({
@@ -79,6 +79,7 @@ export const Skills = ({ accentColor }) => {
           accentColor={accentColor}
           linkRef={linkRef}
           projectRef={projectRef}
+          dark={dark}
         ></ForceGraph>
       </motion.div>
     </Stack>

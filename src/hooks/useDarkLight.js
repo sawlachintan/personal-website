@@ -5,7 +5,7 @@ const lsSet = (preference) => {
 };
 
 export const useDarkLight = () => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
 
   const toggleTheme = () => {
     if (theme === "light") {

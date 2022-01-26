@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
+import { text } from "d3";
 
 const strokeColors = {
   "#d50000": "#ef9a9a",
@@ -35,7 +36,13 @@ const drag = (simulation) => {
     .on("end", dragEnded);
 };
 
-export const ForceGraph = ({ data, accentColor, linkRef, projectRef }) => {
+export const ForceGraph = ({
+  data,
+  accentColor,
+  linkRef,
+  projectRef,
+  dark,
+}) => {
   const svgRef = useRef(null);
   const nodes = data.nodes;
   const links = data.links;
@@ -105,11 +112,9 @@ export const ForceGraph = ({ data, accentColor, linkRef, projectRef }) => {
         .attr("text-anchor", "middle")
         .attr("alignment-baseline", "middle")
         .attr("font-size", "1rem")
-        .attr("user-select", "none");
+        .call(drag(simulation));
 
       simulation.on("tick", () => {
-        console.log("tick");
-
         lines
           .attr("x1", (link) => link.source.x)
           .attr("y1", (link) => link.source.y)
@@ -141,6 +146,19 @@ export const ForceGraph = ({ data, accentColor, linkRef, projectRef }) => {
         .attr("stroke", strokeColors[accentColor]);
     }
   }, [accentColor]);
+
+  useEffect(() => {
+    if (svgRef.current) {
+      const svg = d3.select(svgRef.current);
+
+      svg
+        .selectAll("text")
+        .transition()
+        .duration(650)
+        .ease(d3.easeCubicInOut)
+        .attr("fill", dark ? "#fff" : "#111");
+    }
+  }, [dark]);
   return (
     <>
       <svg ref={svgRef}></svg>

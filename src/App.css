@@ -19,7 +19,3 @@
 .profile {
   transform: scale(0.75);
 }
-
-text{
-  user-select: none;
-}
